@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  spanish-api:
+    build:
+      context: ./spanish-api
+    container_name: spanish-api
+    environment:
+      APP_HOST: 0.0.0.0
+      APP_PORT: 5000
+      API_URL: https://localhost:5000
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: NodeCW
+      DB_CONNECTION: postgresql
+      DB_PORT: 5432
+      DB_URL: postgres
+      DATABASE_URL: postgresql://postgres:1234@host.docker.internal:5432/NodeCW
+      JWT_ACCESS_TOKEN_SECRET: 123
+      JWT_REFRESH_TOKEN_SECRET: 213
+      SMTP_HOST: smtp.mail.ru
+      SMTP_PORT: 465
+      SMTP_USER: mrfiref@mail.ru
+      SMTP_PASSWORD: xanFzY9h0qxQjhyK0Yst
+      SALT: 10
+      CREATE_WORD_INTERVAL: 10000
+      PATH_TO_HTTPS: certs/
+    ports:
+      - "5000:5000"
+    networks:
+      - app_network
+    volumes:
+      - ./spanish-api:/app
+      - ./spanish-api/certs:/app/certs
+
+  spanish-front:
+    build:
+      context: ./spanish-front
+    container_name: spanish-front
+    environment:
+      REACT_APP_API_URL: 'https://localhost:5000/'
+      REACT_APP_WS_URL: 'ws://localhost:5001/'
+      SSL_CRT_FILE: certs/LAB.crt
+      SSL_KEY_FILE: certs/LAB.key
+      HTTPS: 'true'
+    ports:
+      - "3000:3000"
+    networks:
+      - app_network
+    volumes:
+      - ./spanish-front:/app
+      - ./spanish-front/certs:/app/certs
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

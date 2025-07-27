@@ -1,0 +1,19 @@
+.statistics-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 1440px;
+  height: 700px;
+}
+
+.statistics-container__table {
+}
+.p-button {
+  background: #006341;
+  border: 1px solid #006341;
+}
+.p-button:hover {
+  background: #0abf80 !important;
+  border: 1px solid #006341 !important;
+}

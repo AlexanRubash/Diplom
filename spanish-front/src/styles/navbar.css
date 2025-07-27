@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  background-color: rgba(255,201,91, 0.5); /* Light beige background */
+  border: 1px solid rgba(205, 183, 153, 0.7);
+}
+
+.navbar .p-menuitem-text {
+  color: #006341     !important; /* Изменение цвета текста */
+  font-weight: bold !important;
+}
+.navbar .p-menuitem-icon {
+  color:#006341    !important; /* Изменение цвета текста */
+
+}
+.navbar .p-menuitem-link:hover {
+  background-color: rgba(0, 99, 65, 0.7) !important; /* Изменение цвета фона при наведении */
+  border-color: rgba(0, 99, 65, 0.7) !important;
+}
+.navbar .p-menuitem-link:focus {
+  box-shadow: 0 0 0 0.3rem rgba(95, 189, 149,0.5) !important;
+}
+.navbar .p-menuitem-link:hover .p-menuitem-text {
+  color: white !important; /* Изменение цвета текста при наведении */
+  border-color: rgba(0, 99, 65, 0.7) !important;
+}
+
+.navbar .p-menuitem-link:hover .p-menuitem-icon {
+  color: white !important; /* Изменение цвета иконки при наведении */
+}

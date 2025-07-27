@@ -1,0 +1,19 @@
+.label {
+  text-align: center;
+}
+
+.username-field {
+  margin-top: 10px;
+}
+
+.register-button {
+  margin-top: 10px;
+  background: #006341;
+  border: 1px solid #006341;
+  border-radius: 3px;
+}
+
+.p-button:disabled {
+  background: #0abf80 !important;
+  border: 1px solid #006341 !important;
+}
